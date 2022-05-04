@@ -1,14 +1,19 @@
 import { Component } from "react";
 import { CompButton } from "./CompButton";
 import InputElement from "./InputElement";
-
+let a = 6;
 export default class TodoList extends Component {
-  state = {
-    toDos: [{ whatToDo: "Seyak@ havaqel" }],
-    inputValue: "",
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      toDos: [{ whatToDo: "Seyak@ havaqel" }],
+      inputValue: "",
+    };
+    // this.handleClick = this.handleClick.bind(this)
+    // this.handleClick = this.handleClick.bind(this)
+  }
 
-  handleClick = () => {
+  handleClick =  () => {
     this.setState((prevState) => {
       return {
         inputValue: "",
@@ -27,7 +32,6 @@ export default class TodoList extends Component {
           }}
         />
         <CompButton onClick={this.handleClick} />
-        {/* <InputElement  /> */}
         <ul>
           {this.state.toDos.map((el) => (
             <li>{el.whatToDo}</li>
